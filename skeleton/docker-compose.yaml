@@ -1,0 +1,12 @@
+services:
+  aws-workshop-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - AWS_REGION=${AWS_REGION}
+    volumes:
+      - "${PWD}:${PWD}"
+      - "${HOME}/.aws:/home/workshop/.aws"
+    working_dir: ${PWD}
+    command: "tail -f /dev/null"
