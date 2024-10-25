@@ -3,22 +3,6 @@ export PWD ?= $(shell pwd)
 
 default: help
 
-bootstrap: ## CDK: bootstrap the environment
-	docker-compose exec aws-workshop-python cdk bootstrap
-.PHONY: bootstrap
-
-deploy: ## CDK: deploy the stack(s)
-	docker-compose exec aws-workshop-python cdk deploy
-.PHONY: deploy
-
-destroy: ## CDK: destroy the stack(s)
-	docker-compose exec aws-workshop-python cdk destroy
-.PHONY: destroy
-
-watch: ## CDK: deploy the stack(s) and watch for changes
-	docker-compose exec aws-workshop-python cdk deploy --watch
-.PHONY: watch
-
 cli: ## Setup: enter the cli of the python container
 	docker-compose exec aws-workshop-python bash
 .PHONY: cli
