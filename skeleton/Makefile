@@ -4,7 +4,7 @@ export PWD ?= $(shell pwd)
 default: help
 
 cli: ## Setup: enter the cli of the python container
-	docker-compose exec aws-workshop-python bash
+	docker-compose exec -it aws-workshop-python bash -c "cd project && bash"
 .PHONY: cli
 
 root-cli: ## Setup: enter the cli of the python container as root user
