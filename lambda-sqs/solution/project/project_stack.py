@@ -4,7 +4,6 @@ from aws_cdk import (
     aws_lambda as lambda_,
     aws_lambda_event_sources as lambda_event_sources,
     aws_sns as sns,
-    aws_sns_subscriptions as subs,
     aws_sqs as sqs,
 )
 from constructs import Construct
@@ -22,8 +21,6 @@ class ProjectStack(Stack):
         topic = sns.Topic(
             self, "ProjectTopic"
         )
-
-        topic.add_subscription(subs.SqsSubscription(queue))
 
         lambda_function = lambda_.Function(
             self, "LambdaSqsSns",
